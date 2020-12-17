@@ -1,8 +1,10 @@
+import React from 'react'
+import Header from './components/Header'
 
-
-function App() {
+const App = () => {
   return (
     <div>
+      <Header />
       <h1 className="text-sm">Hello World</h1>
     </div>
   );
