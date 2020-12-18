@@ -4,13 +4,15 @@ import Header from "./components/Header";
 import LandingPage from "./pages/LandingPage";
 import Footer from "./components/Footer";
 import "./assets/output.css";
+import SignUp from "./pages/SignUp";
 
 const App = () => {
   return (
     <div>
       <Header />
       <Switch>
-        <Route component={LandingPage} />
+        <Route exact path="/" component={LandingPage} />
+        <Route path="/signup" component={SignUp} />
       </Switch>
       <Footer />
     </div>
