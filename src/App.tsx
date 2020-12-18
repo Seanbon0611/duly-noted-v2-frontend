@@ -1,14 +1,20 @@
-import React from 'react'
-import Header from './components/Header'
-import './assets/output.css'
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import Header from "./components/Header";
+import LandingPage from "./pages/LandingPage";
+import Footer from "./components/Footer";
+import "./assets/output.css";
 
 const App = () => {
   return (
-    <div className="box-border">
+    <div>
       <Header />
-      <h1 className="text-sm">Hello World</h1>
+      <Switch>
+        <Route component={LandingPage} />
+      </Switch>
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
