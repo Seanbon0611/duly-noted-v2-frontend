@@ -14,7 +14,9 @@ const Header = () => {
             <Link to="/demo">
               <li className="pr-3 cursor-pointer hover:text-white">Demo</li>
             </Link>
-            <li className="hover:text-white">Contact</li>
+            <Link to="/contact">
+              <li className="hover:text-white">Contact</li>
+            </Link>
           </ul>
         </div>
       </div>

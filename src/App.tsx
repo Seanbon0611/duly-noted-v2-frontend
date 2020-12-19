@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import "./assets/output.css";
 import SignUp from "./pages/SignUp";
 import DemoPage from "./pages/DemoPage";
+import ContactPage from "./pages/ContactPage";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route exact path="/" component={LandingPage} />
         <Route path="/signup" component={SignUp} />
         <Route path="/demo" component={DemoPage} />
+        <Route path="/contact" component={ContactPage} />
       </Switch>
       <Footer />
     </div>
