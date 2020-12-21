@@ -4,7 +4,7 @@ const ContactPage = () => {
   return (
     <div className="h-screen pt-24">
       <img
-        alt=""
+        alt="portrait"
         className="w-48 h-48 mx-auto rounded-full"
         src="https://duly-noted.s3-us-west-1.amazonaws.com/portrait.jpg"
       />
@@ -19,6 +19,7 @@ const ContactPage = () => {
           <img
             className="w-12"
             src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg"
+            alt="linkedin"
           />
         </a>
         <p>Medium</p>
@@ -30,6 +31,7 @@ const ContactPage = () => {
           <img
             className="w-12"
             src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/medium.svg"
+            alt="medium"
           />
         </a>
         <p>Email</p>
@@ -37,6 +39,7 @@ const ContactPage = () => {
           <img
             className="w-12"
             src="https://image.flaticon.com/icons/png/512/666/666162.png"
+            alt="email"
           />
         </a>
         <p>GitHub</p>
@@ -48,6 +51,7 @@ const ContactPage = () => {
           <img
             className="w-16"
             src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+            alt="github"
           />
         </a>
       </div>

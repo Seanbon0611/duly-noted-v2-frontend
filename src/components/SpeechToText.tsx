@@ -1,15 +1,11 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useEffect } from "react";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 
 const SpeechToText = () => {
-  const { transcript, resetTranscript } = useSpeechRecognition();
-  const [speechText, setSpeechText] = useState("");
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    console.log(e.target.text.value);
-  };
+  const { transcript } = useSpeechRecognition();
+
   useEffect(() => {
     SpeechRecognition.startListening({ continuous: true });
     console.log("Now listening...");
@@ -23,15 +19,7 @@ const SpeechToText = () => {
   }
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <textarea name="text" rows={10} cols={50} value={transcript}></textarea>
-        <button type="submit" className="p-2 border border-black">
-          Save note
-        </button>
-        <button onClick={resetTranscript} className="p-2 border border-black">
-          Clear note
-        </button>
-      </form>
+      <textarea name="text" rows={10} cols={50} value={transcript}></textarea>
     </div>
   );
 };
