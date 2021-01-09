@@ -1,9 +1,12 @@
 interface Props {
-  asterisk: boolean;
-  label: string;
-  textarea: boolean;
-  type: string;
-  placeholder: string;
+  asterisk?: boolean;
+  label?: string;
+  textarea?: boolean;
+  type?: string;
+  placeholder?: string;
+  handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
+  name?: string;
 }
 
 const FormInput: React.FC<Props> = ({
@@ -12,6 +15,9 @@ const FormInput: React.FC<Props> = ({
   textarea,
   type,
   placeholder,
+  handleChange,
+  value,
+  name,
   ...otherProps
 }) => {
   return (
@@ -21,9 +27,12 @@ const FormInput: React.FC<Props> = ({
         <textarea className="form-input" {...otherProps}></textarea>
       ) : (
         <input
-          className="w-full p-2 border border-black rounded form-input"
+          className="w-full p-2 border border-gray-700 rounded form-input"
+          onChange={handleChange}
           type={type}
           placeholder={placeholder}
+          value={value}
+          name={name}
         />
       )}
     </div>
