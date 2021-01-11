@@ -14,16 +14,19 @@ const SignUp: React.FC = () => {
     }
     const config = {
       method: "POST",
+      credentials: "include",
       headers: {
         accept: "application/json",
-        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         email: email,
         password: password,
       }),
     };
-    api.user.signUp(config).then((data) => console.log(data));
+    api.user
+      .signUp(config)
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
   };
 
   return (
