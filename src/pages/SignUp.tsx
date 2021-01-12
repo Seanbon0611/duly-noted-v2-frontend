@@ -7,6 +7,7 @@ const SignUp: React.FC = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (confirmPassword !== password) {
@@ -19,13 +20,20 @@ const SignUp: React.FC = () => {
         accept: "application/json",
       },
       body: JSON.stringify({
-        email: email,
+        email: email.toLowerCase(),
         password: password,
       }),
     };
     api.user
       .signUp(config)
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data);
+        if (data.msg === "success") {
+          setSuccess(true);
+        } else if (data.msg === "error") {
+          setError(data.err);
+        }
+      })
       .catch((err) => console.log(err));
   };
 
@@ -38,44 +46,48 @@ const SignUp: React.FC = () => {
         </div>
       ) : null}
       <div className="flex items-center justify-center mx-auto">
-        <form className="space-y-6" onSubmit={handleSubmit}>
-          <FormInput
-            type="email"
-            label="Email"
-            handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setEmail(e.target.value);
-            }}
-            value={email}
-            name="email"
-            asterisk={false}
-            textarea={false}
-            placeholder="email@example.com"
-          />
-          <FormInput
-            type="password"
-            label="Password"
-            value={password}
-            handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setPassword(e.target.value);
-            }}
-            placeholder="Password"
-          />
-          <FormInput
-            type="password"
-            label="Confirm Password"
-            value={confirmPassword}
-            handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setConfirmPassword(e.target.value);
-            }}
-            placeholder="Password"
-          />
-          <button
-            type="submit"
-            className="p-2 text-white bg-blue-800 border border-gray-700 rounded hover:bg-blue-500"
-          >
-            Register
-          </button>
-        </form>
+        {success ? (
+          <h1>Account Created!</h1>
+        ) : (
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            <FormInput
+              type="email"
+              label="Email"
+              handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setEmail(e.target.value);
+              }}
+              value={email}
+              name="email"
+              asterisk={false}
+              textarea={false}
+              placeholder="email@example.com"
+            />
+            <FormInput
+              type="password"
+              label="Password"
+              value={password}
+              handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setPassword(e.target.value);
+              }}
+              placeholder="Password"
+            />
+            <FormInput
+              type="password"
+              label="Confirm Password"
+              value={confirmPassword}
+              handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setConfirmPassword(e.target.value);
+              }}
+              placeholder="Password"
+            />
+            <button
+              type="submit"
+              className="p-2 text-white bg-blue-800 border border-gray-700 rounded hover:bg-blue-500"
+            >
+              Register
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );
