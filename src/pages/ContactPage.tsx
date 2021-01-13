@@ -8,9 +8,9 @@ const ContactPage = () => {
         className="w-48 h-48 mx-auto rounded-full"
         src="https://duly-noted.s3-us-west-1.amazonaws.com/portrait.jpg"
       />
-      <h1 className="text-center">Connect With me on:</h1>
+      <h1 className="text-center">Connect with me on:</h1>
       <div className="flex items-center justify-center">
-        <p>Linkedin</p>
+        <p className="px-2">Linkedin:</p>
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -22,7 +22,7 @@ const ContactPage = () => {
             alt="linkedin"
           />
         </a>
-        <p>Medium</p>
+        <p className="px-2">Medium: </p>
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -34,7 +34,7 @@ const ContactPage = () => {
             alt="medium"
           />
         </a>
-        <p>Email</p>
+        <p className="px-2">Email: </p>
         <a href="mailto:seandever.developer@gmail.com">
           <img
             className="w-12"
@@ -42,7 +42,7 @@ const ContactPage = () => {
             alt="email"
           />
         </a>
-        <p>GitHub</p>
+        <p className="px-2">GitHub</p>
         <a
           target="_blank"
           rel="noopener noreferrer"
