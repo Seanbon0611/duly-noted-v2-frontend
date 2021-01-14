@@ -27,7 +27,7 @@ const FormInput: React.FC<Props> = ({
         <textarea className="form-input" {...otherProps}></textarea>
       ) : (
         <input
-          className="w-full p-2 border border-gray-700 rounded form-input"
+          className="p-2 border border-gray-700 rounded form-input"
           onChange={handleChange}
           type={type}
           placeholder={placeholder}

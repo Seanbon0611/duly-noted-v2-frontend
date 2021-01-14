@@ -2,7 +2,11 @@ import { useState } from "react";
 import FormInput from "../components/FormInput";
 import api from "../services/api";
 
-const SignIn = () => {
+type Props = {
+  setToken?: any;
+};
+
+const SignIn: React.FC<Props> = ({ setToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -20,7 +24,7 @@ const SignIn = () => {
     };
     try {
       api.auth.login(config).then((data) => {
-        console.log(data);
+        setToken(data.token);
       });
     } catch (e) {
       console.error(e);
@@ -29,9 +33,12 @@ const SignIn = () => {
   };
 
   return (
-    <div className="h-screen">
-      <h1 className="text-5xl">Sign In</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="h-screen px-10">
+      <h1 className="text-4xl font-bold">Sign In</h1>
+      <form
+        className="flex flex-col items-center justify-center space-y-6"
+        onSubmit={handleSubmit}
+      >
         <FormInput
           label="Email"
           type="email"
@@ -50,7 +57,7 @@ const SignIn = () => {
         />
         <button
           type="submit"
-          className="p-2 text-white bg-blue-800 rounded hover:bg-blue-600"
+          className="p-2 text-white bg-blue-800 border border-gray-800 rounded hover:bg-blue-500"
         >
           Login
         </button>

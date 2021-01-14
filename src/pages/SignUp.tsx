@@ -58,8 +58,6 @@ const SignUp: React.FC = () => {
               }}
               value={email}
               name="email"
-              asterisk={false}
-              textarea={false}
               placeholder="email@example.com"
             />
             <FormInput

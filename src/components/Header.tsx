@@ -22,7 +22,7 @@ const Header = () => {
       </div>
       <div>
         <Link to="/signup" className="pr-3">
-          <button className="p-1 text-white bg-blue-800 border border-black rounded hover:bg-blue-600">
+          <button className="p-1 text-white bg-blue-800 border border-gray-500 rounded hover:bg-blue-600">
             Sign-Up
           </button>
         </Link>
