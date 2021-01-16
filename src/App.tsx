@@ -10,20 +10,37 @@ import SignIn from "./pages/SignIn";
 import "./assets/output.css";
 import useToken from "./hooks/useToken";
 
+const initialUserState = {
+  email: "",
+  notes: [],
+};
+
 const App = () => {
   const { token, setToken } = useToken();
   const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState(initialUserState);
 
-  // const logout = () => {
-
-  // }
+  const logout = () => {
+    localStorage.clear();
+    setUser(initialUserState);
+    setLoggedIn(false);
+  };
   return (
     <div>
-      <Header />
+      <Header loggedIn={loggedIn} logout={logout} />
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route path="/signup" component={SignUp} />
-        <Route path="/signin" render={() => <SignIn setToken={setToken} />} />
+        <Route
+          path="/signin"
+          render={() => (
+            <SignIn
+              setToken={setToken}
+              setUser={setUser}
+              setLoggedIn={setLoggedIn}
+            />
+          )}
+        />
         <Route path="/demo" component={DemoPage} />
         <Route path="/contact" component={ContactPage} />
       </Switch>
