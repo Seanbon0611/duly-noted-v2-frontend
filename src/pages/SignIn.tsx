@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { Redirect } from "react-router";
 import FormInput from "../components/FormInput";
 import api from "../services/api";
 
 type Props = {
   setToken?: any;
+  setUser?: any;
+  setLoggedIn: any;
 };
 
-const SignIn: React.FC<Props> = ({ setToken }) => {
+const SignIn: React.FC<Props> = ({ setToken, setUser, setLoggedIn }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,7 +27,12 @@ const SignIn: React.FC<Props> = ({ setToken }) => {
     };
     try {
       api.auth.login(config).then((data) => {
+        console.log(data);
+        console.log(data.msg === "success");
         setToken(data.token);
+        setUser({ email: data.email, notes: data.notes });
+        setLoggedIn(true);
+        return <Redirect push to="/" />;
       });
     } catch (e) {
       console.error(e);
