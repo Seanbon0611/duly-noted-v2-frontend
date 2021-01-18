@@ -33,7 +33,7 @@ const SpeechToText = () => {
           cols={50}
           value={transcript}
         ></textarea>
-        <div className="flex justify-between w-56 mx-auto">
+        <div className="flex justify-between w-56 pt-4 mx-auto">
           <button type="submit" className="p-2 border border-black">
             Save note
           </button>
