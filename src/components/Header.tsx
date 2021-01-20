@@ -28,7 +28,7 @@ const Header: React.FC<Props> = ({ loggedIn, logout }) => {
         ) : (
           <div className="pl-5">
             <ul className="flex">
-              <Link to="/contact">
+              <Link to="/notes">
                 <li className="pr-3 hover:text-white">Notes</li>
               </Link>
               <Link to="/contact">

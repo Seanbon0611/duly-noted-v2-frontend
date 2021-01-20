@@ -31,7 +31,10 @@ const SignIn: React.FC<Props> = ({ setToken, setUser, setLoggedIn }) => {
         console.log(data);
         console.log(data.msg === "success");
         setToken(data.token);
-        setUser({ email: data.email, notes: data.notes });
+        setUser({
+          id: data.user.ID,
+          email: data.user.email,
+        });
         setLoggedIn(true);
         history.push("/");
       });
