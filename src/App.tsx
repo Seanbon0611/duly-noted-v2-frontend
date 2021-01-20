@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import LandingPage from "./pages/LandingPage";
@@ -22,11 +22,28 @@ const App = () => {
   const [user, setUser] = useState(initialUserState);
 
   const logout = () => {
-    localStorage.clear();
     setUser(initialUserState);
     setLoggedIn(false);
+    localStorage.clear();
   };
-  console.log(user);
+  //If a user is logged in(has an id other than 0), then make sure we have our login state set to true
+  useEffect(() => {
+    if (user.id !== 0) {
+      setLoggedIn(true);
+    }
+  }, [user]);
+
+  //Persist user data, using data from local storage if it exists
+  useEffect(() => {
+    const userData = localStorage.getItem("user");
+    if (userData) {
+      setUser(JSON.parse(userData));
+    }
+  }, []);
+  //save user to local storage
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(user));
+  });
   return (
     <div>
       <Header loggedIn={loggedIn} logout={logout} />
