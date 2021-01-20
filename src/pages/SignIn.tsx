@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Redirect } from "react-router";
+import { useHistory } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import api from "../services/api";
 
@@ -12,6 +12,7 @@ type Props = {
 const SignIn: React.FC<Props> = ({ setToken, setUser, setLoggedIn }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  let history = useHistory();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,10 +33,10 @@ const SignIn: React.FC<Props> = ({ setToken, setUser, setLoggedIn }) => {
         setToken(data.token);
         setUser({ email: data.email, notes: data.notes });
         setLoggedIn(true);
-        return <Redirect push to="/" />;
+        history.push("/");
       });
     } catch (e) {
-      console.error(e);
+      console.log(e);
       return null;
     }
   };
