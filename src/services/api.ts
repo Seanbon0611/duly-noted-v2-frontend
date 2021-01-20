@@ -10,6 +10,11 @@ const login = async (config: Object) => {
   return response.json();
 };
 
+const getNotes = async (id: number) => {
+  const response = await fetch(`${API_ROOT}/notes/${id}`);
+  return response.json();
+};
+
 export default {
   API_ROOT: API_ROOT,
   user: {
@@ -17,5 +22,8 @@ export default {
   },
   auth: {
     login: login,
+  },
+  note: {
+    getNotes: getNotes,
   },
 };
