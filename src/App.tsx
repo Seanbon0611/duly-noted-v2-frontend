@@ -9,10 +9,11 @@ import ContactPage from "./pages/ContactPage";
 import SignIn from "./pages/SignIn";
 import "./assets/output.css";
 import useToken from "./hooks/useToken";
+import NotesPage from "./pages/NotesPage";
 
 const initialUserState = {
+  id: 0,
   email: "",
-  notes: [],
 };
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
     setUser(initialUserState);
     setLoggedIn(false);
   };
+  console.log(user);
   return (
     <div>
       <Header loggedIn={loggedIn} logout={logout} />
@@ -43,6 +45,7 @@ const App = () => {
         />
         <Route path="/demo" component={DemoPage} />
         <Route path="/contact" component={ContactPage} />
+        <Route path="/notes" render={() => <NotesPage id={user.id} />} />
       </Switch>
       <Footer />
     </div>
