@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import NoteCard from "../components/NoteCard";
 import api from "../services/api";
 
 type Props = {
@@ -10,12 +11,13 @@ const NotesPage: React.FC<Props> = ({ id }) => {
   useEffect(() => {
     api.note.getNotes(id).then((data: any) => setNotes(data.data));
   }, [id]);
+  console.log(notes);
   return (
-    <div className="px-10">
+    <div className="h-screen px-10">
       <h1 className="text-3xl">Notes</h1>
       <div>
         {notes.map((note: any) => {
-          return <h1 key={note.id}>{note.content}</h1>;
+          return <NoteCard key={note.id} note={note} />;
         })}
       </div>
     </div>
