@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import NoteCard from "../components/NoteCard";
 import api from "../services/api";
 
@@ -19,6 +20,13 @@ const NotesPage: React.FC<Props> = ({ id }) => {
         {notes.map((note: any) => {
           return <NoteCard key={note.id} note={note} />;
         })}
+        <Link to="/notes/new">
+          <div className="flex items-center justify-center w-64 border-4 border-blue-400 border-dashed h-36">
+            <button className="flex justify-center w-12 h-12 text-5xl text-white bg-blue-600 rounded-full">
+              +
+            </button>
+          </div>
+        </Link>
       </div>
     </div>
   );
