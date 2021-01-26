@@ -13,9 +13,11 @@ const SpeechToText = () => {
   };
 
   useEffect(() => {
+    //Initiate speech recognition on component mounting
     SpeechRecognition.startListening({ continuous: true });
     console.log("Now listening...");
     return () => {
+      //cleanup
       SpeechRecognition.stopListening();
       console.log("Stopped Listening");
     };
