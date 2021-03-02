@@ -1,10 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 
 const SpeechToText = () => {
-  const { transcript, resetTranscript } = useSpeechRecognition();
+  const commands = [
+    {
+      command: "clear",
+      callback: ({ resetTranscript }: any) => resetTranscript(),
+    },
+  ];
+  const { transcript, resetTranscript } = useSpeechRecognition({ commands });
+  const [message, setMessage] = useState("");
   const handleSubmit = (e: any) => {
     e.preventDefault();
     alert(
@@ -34,6 +41,7 @@ const SpeechToText = () => {
           rows={10}
           cols={50}
           value={transcript}
+          onChange={(): void => setMessage(transcript)}
         ></textarea>
         <div className="flex justify-between w-56 pt-4 mx-auto">
           <button type="submit" className="p-2 border border-black">
