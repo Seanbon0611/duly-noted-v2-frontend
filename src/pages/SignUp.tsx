@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import api from "../services/api";
 import FormInput from "../components/FormInput";
 
@@ -39,7 +40,7 @@ const SignUp: React.FC = () => {
   };
 
   return (
-    <div className="h-screen px-10 pt-5">
+    <div className="h-screen px-3 pt-5 sm:px-10">
       <h1 className="text-4xl font-bold">Signup</h1>
       {error ? (
         <div className="flex justify-center pb-2">
@@ -50,11 +51,16 @@ const SignUp: React.FC = () => {
         {success ? (
           <h1>Account Created!</h1>
         ) : (
-          <div className="p-8 border border-black rounded sm:w-3/4 md:w-2/5 bg-gradient-to-br from-blue-400 to-indigo-500">
-            <h1 className="pb-10 text-2xl font-bold">
+          <div className="p-8 border border-black rounded sm:w-3/4 md:w-2/5 bg-gradient-to-br from-blue-400 to-indigo-400">
+            <h1 className="pb-3 text-2xl font-bold">
               Welcome to Duly-Noted, you're just one step away from saving
               notes!
             </h1>
+            <Link to="/signin">
+              <p className="pb-2 underline">
+                Already have an account? Click here to login here
+              </p>
+            </Link>
             <form onSubmit={handleSubmit}>
               <div className="flex flex-col space-y-6 ">
                 <FormInput

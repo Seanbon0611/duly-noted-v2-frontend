@@ -1,5 +1,5 @@
-// const API_ROOT = "http://localhost:3001/api/v1";
-const API_ROOT = "http://161.35.238.19:3001/api/v1";
+const API_ROOT = "http://localhost:3001/api/v1";
+// const API_ROOT = "http://161.35.238.19:3001/api/v1";
 
 const signUp = async (config: Object) => {
   const response = await fetch(`${API_ROOT}/users/create`, config);

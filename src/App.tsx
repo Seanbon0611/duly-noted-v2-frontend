@@ -10,6 +10,8 @@ import SignIn from "./pages/SignIn";
 import "./assets/output.css";
 import useToken from "./hooks/useToken";
 import NotesPage from "./pages/NotesPage";
+import NewNotePage from "./pages/NewNotePage";
+import NotFound from "./pages/NotFound";
 
 const initialUserState = {
   id: 0,
@@ -62,7 +64,9 @@ const App = () => {
         />
         <Route path="/demo" component={DemoPage} />
         <Route path="/contact" component={ContactPage} />
+        <Route path="/notes/new" component={NewNotePage} />
         <Route path="/notes" render={() => <NotesPage id={user.id} />} />
+        <Route render={() => <NotFound loggedIn={loggedIn} />} />
       </Switch>
       <Footer />
     </div>

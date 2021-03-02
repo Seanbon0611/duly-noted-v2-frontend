@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 const LandingPage = () => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center px-1">
       <div className="flex flex-col items-center justify-center h-screen prose text-center">
         <h1 className="text-5xl font-bold">
           Take Better Notes with Speech-to-text Technology

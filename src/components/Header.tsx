@@ -5,7 +5,7 @@ import { ReactComponent as CloseMenu } from "../assets/icons/x.svg";
 import { Link } from "react-router-dom";
 
 type Props = {
-  loggedIn?: any;
+  loggedIn: boolean;
   logout?: () => void;
 };
 
@@ -15,7 +15,7 @@ const Header: React.FC<Props> = ({ loggedIn, logout }) => {
   return (
     <div className="flex items-center justify-between h-24 px-3 sm:px-10 bg-gradient-to-br from-blue-400 to-indigo-400">
       <div className="flex items-center">
-        <Link to="/" className="flex items-center">
+        <Link to={loggedIn ? "/notes" : "/"} className="flex items-center">
           <Logo className="w-16" />
           <p className="pl-2 text-3xl satisfy hover:text-white">Duly-noted</p>
         </Link>
@@ -50,11 +50,11 @@ const Header: React.FC<Props> = ({ loggedIn, logout }) => {
           <div className="hidden sm:block">
             <Link to="/signup" className="pr-3">
               <button className="p-1 text-white bg-blue-800 border border-gray-500 rounded hover:bg-blue-600">
-                Sign-Up
+                Create account
               </button>
             </Link>
             <Link to="/signin">
-              <button className="p-1 hover:text-white">Sign-In</button>
+              <button className="p-1 hover:text-white">Login</button>
             </Link>
           </div>
           <div onClick={() => setClick(!click)} className="sm:hidden">
@@ -92,10 +92,10 @@ const Header: React.FC<Props> = ({ loggedIn, logout }) => {
             <li className="py-3 text-white hover:text-white">Contact</li>
           </Link>
           <Link to="/signin" onClick={closeMobileMenu}>
-            <li className="py-3 text-white hover:text-white">Signin</li>
+            <li className="py-3 text-white hover:text-white">Login</li>
           </Link>
           <Link to="/signup" onClick={closeMobileMenu}>
-            <li className="py-3 text-white hover:text-white">Signup</li>
+            <li className="py-3 text-white hover:text-white">Create account</li>
           </Link>
         </ul>
       </div>

@@ -2,7 +2,7 @@ import socials from "../socials";
 const ContactPage = () => {
   return (
     <div className="h-screen">
-      <h1 className="px-10 pt-5 text-4xl">Contact</h1>
+      <h1 className="px-3 pt-5 text-4xl sm:px-10">Contact</h1>
       <div className="flex flex-col pt-11">
         <img
           alt="portrait"
