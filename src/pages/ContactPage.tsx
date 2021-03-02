@@ -2,18 +2,18 @@ import socials from "../socials";
 const ContactPage = () => {
   return (
     <div className="h-screen">
-      <h1 className="px-10 text-4xl">Contact</h1>
-      <div className="flex flex-col pt-36">
+      <h1 className="px-10 pt-5 text-4xl">Contact</h1>
+      <div className="flex flex-col pt-11">
         <img
           alt="portrait"
           className="w-48 h-48 mx-auto rounded-full"
           src="https://duly-noted.s3-us-west-1.amazonaws.com/portrait.jpg"
         />
         <h1 className="py-5 text-3xl text-center">Connect with me on:</h1>
-        <div className="flex justify-center py-5">
+        <div className="flex flex-col items-center justify-center py-5 sm:flex-row">
           {socials.map((social: any) => {
             return (
-              <div className="px-5" key={social.title}>
+              <div className="p-5" key={social.title}>
                 <a
                   className="flex items-center"
                   target="_blank"

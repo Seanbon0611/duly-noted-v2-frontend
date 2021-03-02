@@ -36,7 +36,7 @@ const SpeechToText = () => {
     <div>
       <form className="flex-col" onSubmit={handleSubmit}>
         <textarea
-          className="flex justify-center border border-black border-solid"
+          className="flex justify-center border border-black border-solid w-96"
           name="text"
           rows={10}
           cols={50}
@@ -44,13 +44,13 @@ const SpeechToText = () => {
           onChange={(): void => setMessage(transcript)}
         ></textarea>
         <div className="flex justify-between w-56 pt-4 mx-auto">
-          <button type="submit" className="p-2 border border-black">
+          <button type="submit" className="p-2 border border-black rounded">
             Save note
           </button>
           <button
             type="reset"
             onClick={resetTranscript}
-            className="p-2 border border-black"
+            className="p-2 border border-black rounded"
           >
             Clear note
           </button>

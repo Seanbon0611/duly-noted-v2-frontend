@@ -46,34 +46,37 @@ const SignIn: React.FC<Props> = ({ setToken, setUser, setLoggedIn }) => {
 
   return (
     <div className="h-screen px-10">
-      <h1 className="text-4xl font-bold">Sign In</h1>
-      <form
-        className="flex flex-col items-center justify-center space-y-6"
-        onSubmit={handleSubmit}
-      >
-        <FormInput
-          label="Email"
-          type="email"
-          value={email}
-          handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <FormInput
-          label="Password"
-          type="password"
-          value={password}
-          handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setPassword(e.target.value);
-          }}
-        />
-        <button
-          type="submit"
-          className="p-2 text-white bg-blue-800 border border-gray-800 rounded hover:bg-blue-500"
+      <h1 className="pt-5 text-4xl font-bold">Sign In</h1>
+      <div className='p-8 border border-black rounded sm:w-3/4 md:w-2/5 bg-gradient-to-br from-blue-400 to-indigo-400"'>
+        <h1>Welcome back, </h1>
+        <form
+          className="flex flex-col items-center justify-center space-y-6"
+          onSubmit={handleSubmit}
         >
-          Login
-        </button>
-      </form>
+          <FormInput
+            label="Email"
+            type="email"
+            value={email}
+            handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <FormInput
+            label="Password"
+            type="password"
+            value={password}
+            handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setPassword(e.target.value);
+            }}
+          />
+          <button
+            type="submit"
+            className="p-2 text-white bg-blue-800 border border-gray-800 rounded hover:bg-blue-500"
+          >
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
