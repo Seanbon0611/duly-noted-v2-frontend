@@ -1,5 +1,6 @@
-const API_ROOT = "http://localhost:3001/api/v1";
-// const API_ROOT = "http://161.35.238.19:3001/api/v1";
+// const API_ROOT = "http://localhost:3001/api/v1";
+const API_ROOT =
+  "https://duly-noted-api-cfac6.ondigitalocean.app/duly-noted-api-v-2";
 
 const signUp = async (config: Object) => {
   const response = await fetch(`${API_ROOT}/users/create`, config);
