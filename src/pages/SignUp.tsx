@@ -17,7 +17,6 @@ const SignUp: React.FC = () => {
     }
     const config = {
       method: "POST",
-      credentials: "include",
       headers: {
         accept: "application/json",
       },
@@ -71,7 +70,7 @@ const SignUp: React.FC = () => {
                   }}
                   value={email}
                   name="email"
-                  placeholder="email@example.com"
+                  placeholder="Email@example.com"
                 />
                 <FormInput
                   type="password"

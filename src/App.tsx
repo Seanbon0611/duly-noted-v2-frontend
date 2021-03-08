@@ -64,7 +64,7 @@ const App = () => {
         />
         <Route path="/demo" component={DemoPage} />
         <Route path="/contact" component={ContactPage} />
-        <Route path="/notes/new" component={NewNotePage} />
+        <Route path="/notes/new" component={NewNotePage} id={user.id} />
         <Route path="/notes" render={() => <NotesPage id={user.id} />} />
         <Route render={() => <NotFound loggedIn={loggedIn} />} />
       </Switch>
