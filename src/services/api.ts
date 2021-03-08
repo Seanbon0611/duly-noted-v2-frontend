@@ -1,10 +1,10 @@
 // const API_ROOT = "http://localhost:3001/api/v1";
-const API_ROOT =
-  "https://duly-noted-api-cfac6.ondigitalocean.app/duly-noted-api-v-2/api/v1";
+const API_ROOT = "https://duly-noted-api-cfac6.ondigitalocean.app/api/v1";
 
-const signUp = async (config: Object) => {
-  const response = await fetch(`${API_ROOT}/users/create`, config);
-  return response.json();
+const signUp = (config: object) => {
+  return fetch(`${API_ROOT}/users/create`, config).then((response) =>
+    response.json()
+  );
 };
 
 const login = async (config: Object) => {

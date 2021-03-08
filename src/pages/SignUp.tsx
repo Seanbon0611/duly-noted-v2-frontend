@@ -25,17 +25,15 @@ const SignUp: React.FC = () => {
         password: password,
       }),
     };
-    api.user
-      .signUp(config)
-      .then((data) => {
-        console.log(data);
-        if (data.msg === "success") {
-          setSuccess(true);
-        } else if (data.msg === "error") {
-          setError(data.err);
-        }
-      })
-      .catch((err) => console.log(err));
+
+    api.user.signUp(config).then((data) => {
+      console.log(data);
+      if (data.msg === "success") {
+        setSuccess(true);
+      } else if (data.msg === "error") {
+        setError(data.err);
+      }
+    });
   };
 
   return (
