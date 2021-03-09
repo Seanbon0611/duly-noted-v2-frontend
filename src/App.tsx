@@ -13,27 +13,23 @@ import NotesPage from "./pages/NotesPage";
 import NewNotePage from "./pages/NewNotePage";
 import NotFound from "./pages/NotFound";
 
-const initialUserState = {
-  id: 0,
-  email: "",
-};
-
 const App = () => {
   const { token, setToken } = useToken();
   const [loggedIn, setLoggedIn] = useState(false);
-  const [user, setUser] = useState(initialUserState);
+  const [user, setUser] = useState({ id: "", email: "" });
+  console.log(token);
 
   const logout = () => {
-    setUser(initialUserState);
+    setUser({ id: "", email: "" });
     setLoggedIn(false);
     localStorage.clear();
   };
   //If a user is logged in(has an id other than 0), then make sure we have our login state set to true
   useEffect(() => {
-    if (user.id !== 0) {
+    if (token) {
       setLoggedIn(true);
     }
-  }, [user]);
+  }, [token]);
 
   //Persist user data, using data from local storage if it exists
   useEffect(() => {
@@ -44,7 +40,8 @@ const App = () => {
   }, []);
   //save user to local storage
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("user_id", JSON.stringify(user.id));
+    localStorage.setItem("user", JSON.stringify(user.email));
   });
   return (
     <div>
@@ -64,8 +61,8 @@ const App = () => {
         />
         <Route path="/demo" component={DemoPage} />
         <Route path="/contact" component={ContactPage} />
-        <Route path="/notes/new" component={NewNotePage} id={user.id} />
-        <Route path="/notes" render={() => <NotesPage id={user.id} />} />
+        <Route path="/notes/new" component={NewNotePage} />
+        <Route path="/notes" render={() => <NotesPage />} />
         <Route render={() => <NotFound loggedIn={loggedIn} />} />
       </Switch>
       <Footer />
