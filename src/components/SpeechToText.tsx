@@ -1,22 +1,20 @@
 import React, { useEffect } from "react";
-import SpeechRecognition, {
-  useSpeechRecognition,
-} from "react-speech-recognition";
 
 type Props = {
   setContent?: any;
   handleSubmit: any;
+  transcript: any;
+  resetTranscript: any;
+  SpeechRecognition: any;
 };
 
-const SpeechToText: React.FC<Props> = ({ handleSubmit, setContent }) => {
-  const commands = [
-    {
-      command: "clear",
-      callback: ({ resetTranscript }: any) => resetTranscript(),
-    },
-  ];
-  const { transcript, resetTranscript } = useSpeechRecognition({ commands });
-
+const SpeechToText: React.FC<Props> = ({
+  handleSubmit,
+  setContent,
+  transcript,
+  resetTranscript,
+  SpeechRecognition,
+}) => {
   useEffect(() => {
     //Initiate speech recognition on component mounting
     SpeechRecognition.startListening({ continuous: true });
