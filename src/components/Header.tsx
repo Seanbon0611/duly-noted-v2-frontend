@@ -33,7 +33,7 @@ const Header: React.FC<Props> = ({ loggedIn, logout }) => {
             </div>
           </div>
         ) : (
-          <div className="pl-5">
+          <div className="hidden pl-5 sm:block">
             <ul className="flex">
               <Link to="/notes">
                 <li className="pr-3 hover:text-white">Notes</li>
@@ -67,7 +67,7 @@ const Header: React.FC<Props> = ({ loggedIn, logout }) => {
         </div>
       ) : (
         <div>
-          <Link to="/" className="pr-3">
+          <Link to="/" className="hidden pr-3 sm:block">
             <button
               onClick={logout}
               className="p-1 text-white bg-blue-800 border border-gray-500 rounded hover:bg-blue-600"
@@ -75,6 +75,13 @@ const Header: React.FC<Props> = ({ loggedIn, logout }) => {
               Signout
             </button>
           </Link>
+          <div onClick={() => setClick(!click)} className="sm:hidden">
+            {click ? (
+              <CloseMenu className="w-12" />
+            ) : (
+              <MenuIcon className="w-12" />
+            )}
+          </div>
         </div>
       )}
       <div
@@ -84,20 +91,41 @@ const Header: React.FC<Props> = ({ loggedIn, logout }) => {
             : "hidden"
         }
       >
-        <ul className="flex flex-col items-center">
-          <Link to="/demo" onClick={closeMobileMenu}>
-            <li className="py-3 text-white hover:opacity-70">Demo</li>
-          </Link>
-          <Link to="/contact" onClick={closeMobileMenu}>
-            <li className="py-3 text-white hover:text-white">Contact</li>
-          </Link>
-          <Link to="/signin" onClick={closeMobileMenu}>
-            <li className="py-3 text-white hover:text-white">Login</li>
-          </Link>
-          <Link to="/signup" onClick={closeMobileMenu}>
-            <li className="py-3 text-white hover:text-white">Create account</li>
-          </Link>
-        </ul>
+        {!loggedIn ? (
+          <ul className="flex flex-col items-center">
+            <Link to="/demo" onClick={closeMobileMenu}>
+              <li className="py-3 text-white hover:opacity-70">Demo</li>
+            </Link>
+            <Link to="/contact" onClick={closeMobileMenu}>
+              <li className="py-3 text-white hover:text-white">Contact</li>
+            </Link>
+            <Link to="/signin" onClick={closeMobileMenu}>
+              <li className="py-3 text-white hover:text-white">Login</li>
+            </Link>
+            <Link to="/signup" onClick={closeMobileMenu}>
+              <li className="py-3 text-white hover:text-white">
+                Create account
+              </li>
+            </Link>
+          </ul>
+        ) : (
+          <ul className="z-50 flex flex-col items-center">
+            <Link to="/notes" onClick={closeMobileMenu}>
+              <li className="py-3 text-white hover:text-white">Notes</li>
+            </Link>
+            <Link to="/contact" onClick={closeMobileMenu}>
+              <li className="py-3 text-white hover:text-white">Contact</li>
+            </Link>
+            <Link to="/">
+              <button
+                className="py-3 text-white hover:text-white"
+                onClick={logout}
+              >
+                Signout
+              </button>
+            </Link>
+          </ul>
+        )}
       </div>
     </div>
   );
