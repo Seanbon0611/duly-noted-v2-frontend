@@ -12,13 +12,13 @@ const login = async (config: Object) => {
   return response.json();
 };
 
-const getNotes = async (id: number) => {
+const getNotes = async (id: any) => {
   const response = await fetch(`${API_ROOT}/notes/${id}`);
   return response.json();
 };
 
 const newNote = async (config: object) => {
-  const response = await fetch(`${API_ROOT}/api/v1/notes/create`, config);
+  const response = await fetch(`${API_ROOT}/notes/create`, config);
   const json = response.json();
   return json;
 };
