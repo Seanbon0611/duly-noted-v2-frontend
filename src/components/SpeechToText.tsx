@@ -32,10 +32,10 @@ const SpeechToText: React.FC<Props> = ({
     <div>
       <form className="flex-col" onSubmit={handleSubmit}>
         <textarea
-          className="flex justify-center border border-black border-solid w-96"
+          className="flex justify-center border border-black border-solid w-80"
           name="text"
           rows={10}
-          cols={50}
+          cols={20}
           value={transcript}
           onChange={(): void => setContent(transcript)}
         ></textarea>
