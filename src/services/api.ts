@@ -23,6 +23,12 @@ const newNote = async (config: object) => {
   return json;
 };
 
+const deleteNote = async (id: number, config: object) => {
+  const response = await fetch(`${API_ROOT}/notes/delete/${id}`, config);
+  const json = await response.json();
+  return json;
+};
+
 export default {
   API_ROOT: API_ROOT,
   user: {
@@ -34,5 +40,6 @@ export default {
   note: {
     getNotes: getNotes,
     newNote: newNote,
+    deleteNote: deleteNote,
   },
 };

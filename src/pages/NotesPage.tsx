@@ -18,7 +18,7 @@ const NotesPage = () => {
         {notes.map((note: any, idx: number) => {
           return (
             <div className="py-3" key={idx}>
-              <NoteCard note={note} />
+              <NoteCard note={note} setNotes={setNotes} />
             </div>
           );
         })}
