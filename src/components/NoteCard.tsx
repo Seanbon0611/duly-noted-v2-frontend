@@ -14,7 +14,9 @@ const NoteCard: React.FC<Props> = ({ note, setNotes }) => {
       headers: {
         Accept: "application/json",
       },
-      body: {},
+      body: JSON.stringify({
+        id: note.ID,
+      }),
     };
     api.note.deleteNote(note.ID, config).then((data) => {
       if (data.msg === "success") {

@@ -23,9 +23,6 @@ const Header: React.FC<Props> = ({ loggedIn, logout }) => {
           <div>
             <div className="hidden pl-5 sm:block">
               <ul className="flex">
-                <Link to="/demo">
-                  <li className="pr-3 cursor-pointer hover:text-white">Demo</li>
-                </Link>
                 <Link to="/contact">
                   <li className="hover:text-white">Contact</li>
                 </Link>
@@ -93,9 +90,6 @@ const Header: React.FC<Props> = ({ loggedIn, logout }) => {
       >
         {!loggedIn ? (
           <ul className="flex flex-col items-center">
-            <Link to="/demo" onClick={closeMobileMenu}>
-              <li className="py-3 text-white hover:opacity-70">Demo</li>
-            </Link>
             <Link to="/contact" onClick={closeMobileMenu}>
               <li className="py-3 text-white hover:text-white">Contact</li>
             </Link>

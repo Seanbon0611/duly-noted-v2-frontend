@@ -59,7 +59,6 @@ const App = () => {
             />
           )}
         />
-        <Route path="/demo" component={DemoPage} />
         <Route path="/contact" component={ContactPage} />
         <Route path="/notes/new" component={NewNotePage} />
         <Route path="/notes" render={() => <NotesPage />} />

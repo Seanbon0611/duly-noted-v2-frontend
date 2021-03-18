@@ -32,7 +32,7 @@ const SpeechToText: React.FC<Props> = ({
     <div>
       <form className="flex-col" onSubmit={handleSubmit}>
         <textarea
-          className="flex justify-center border border-black border-solid w-80"
+          className="flex justify-center border border-black border-solid rounded w-80"
           name="text"
           rows={10}
           cols={20}
